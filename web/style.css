@@ -1,0 +1,74 @@
+
+
+body {
+    margin: auto;
+    background: #E3D9BF;
+}
+
+.infoBloc {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+a {
+    color: maroon;
+}
+
+
+.centre {
+    text-align: center;
+    font-family: arial;
+
+}
+
+ul {
+    list-style: none; /*убираем маркеры списка*/
+    margin: 0; /*убираем отступы*/
+    padding-left: 0; /*убираем отступы*/
+    margin-top: auto;; /*делаем отступ сверху*/
+    background:#1898B8; /*добавляем фон всему меню*/
+    height: 50px; /*задаем высоту*/
+}
+a {
+    text-decoration: none; /*убираем подчеркивание текста ссылок*/
+    background:#1898B8; /*добавляем фон к пункту меню*/
+    color:#fff; /*меняем цвет ссылок*/
+    padding:0px 15px; /*добавляем отступ*/
+    font-family: arial; /*меняем шрифт*/
+    line-height:50px; /*ровняем меню по вертикали*/
+    display: block;
+    border-right: 1px solid #1898B8; /*добавляем бордюр справа*/
+    -moz-transition: all 0.3s 0.01s ease; /*делаем плавный переход*/
+    -o-transition: all 0.3s 0.01s ease;
+    -webkit-transition: all 0.3s 0.01s ease;
+
+}
+a:hover {
+    background:#A12236;/*добавляем эффект при наведении*/
+}
+li {
+    float:left; /*Размещаем список горизонтально*/
+}
+
+input {
+    width: 700px;
+    margin: 20px;
+    height: 35px;
+    font-size: 20px;
+
+}
+
+input.button {
+    width: 250px;
+    height: 50px;
+    font-size: 20px;
+    color: white;
+    background: #1898B8;
+    margin: auto;
+    margin-top: 20px;
+
+}
