@@ -1,3 +1,4 @@
+<%@ page import="java.util.ResourceBundle" %>
 <%@page pageEncoding="UTF-8"%>
 <html>
 <head>
@@ -6,23 +7,24 @@
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <ul>
-        <li><a href="index.jsp">Главная</a></li>
-        <li><a href="info.jsp">Информация</a></li>
-        <li><a href="new.jsp">Добавить</a></li>
+<%!ResourceBundle res = ResourceBundle.getBundle("lang_ru_RU");%>
+    <ul class="menuList">
+        <li class="menu"><a href="index.jsp">Главная</a></li>
+        <li class="menu"><a href="info.jsp">Информация</a></li>
+        <li class="menu"><a href="new.jsp">Добавить</a></li>
     </ul>
             <form class="centre" action="add.jsp" method="post">
                 <h3>Добавить новую функцию</h3><br>
                 Функция: <br>
-                <input type="text" name="1"/><br>
+                <textarea  name="functionArea" rows="5" cols="100" maxlength="90"></textarea><br>
                 Синтаксис: <br>
-                <input type="text" name="2"/><br>
+                <textarea  name="syntacsisArea" rows="5" cols="100" maxlength="90"></textarea><br>
                 Параметры: <br>
-                <input type="text" name="3"/><br>
+                <textarea  name="parametrsArea" rows="5" cols="100" maxlength="90"></textarea><br>
                 Возвращаемые значения: <br>
-                <input type="text" name="4"/><br>
+                <textarea  name="returnTypeArea" rows="5" cols="100" maxlength="1000"></textarea><br>
                 Описание: <br>
-                <input type="text" name="5"/><br>
+                <textarea  name="actArea" rows="5" cols="100" maxlength="1000"></textarea><br>
                 <input class="button" type="submit" name="press" value="Добавить"/>
             </form>
 </body>
