@@ -25,7 +25,7 @@ a {
 
 }
 
-ul {
+.menuList {
     list-style: none; /*убираем маркеры списка*/
     margin: 0; /*убираем отступы*/
     padding-left: 0; /*убираем отступы*/
@@ -50,25 +50,52 @@ a {
 a:hover {
     background:#A12236;/*добавляем эффект при наведении*/
 }
-li {
+.menu {
     float:left; /*Размещаем список горизонтально*/
-}
-
-input {
-    width: 700px;
-    margin: 20px;
-    height: 35px;
-    font-size: 20px;
-
 }
 
 input.button {
     width: 250px;
     height: 50px;
     font-size: 20px;
-    color: white;
+    color: #ffffff;
     background: #1898B8;
     margin: auto;
     margin-top: 20px;
 
+}
+textarea {
+    font-size: 20px;
+    margin: 10px;
+}
+
+input {
+    /*width: 700px;
+    height: 45px;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;*/
+
+    padding: 3px;
+    font-size: 30px;
+    border: 5px solid #1898B8;
+    -moz-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25) inset, 0 2px 10px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25) inset, 0 2px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25) inset, 0 2px 10px rgba(0, 0, 0, 0.25);
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    color: #333;
+    width: 50%;
+    margin-bottom: 20px;
+    left: 25%;
+    top: 35%;
+}
+
+input:hover {
+    background:#A12236;/*добавляем эффект при наведении*/
 }
