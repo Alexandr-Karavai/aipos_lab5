@@ -8,15 +8,15 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>WinAPI</title>
+    <title><%=res.getString("title.value")%></title>
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <%!ResourceBundle res = ResourceBundle.getBundle("lang_ru_RU");%>
     <ul class="menuList">
-        <li class="menu"><a href="index.jsp">Главная</a></li>
-        <li class="menu"><a href="info.jsp">Информация</a></li>
-        <li class="menu"><a href="new.jsp">Добавить</a></li>
+        <li class="menu"><a href="index.jsp"><%=res.getString("menu.main")%></a></li>
+        <li class="menu"><a href="info.jsp"><%=res.getString("menu.info")%></a></li>
+        <li class="menu"><a href="new.jsp"><%=res.getString("menu.add")%></a></li>
     </ul>
     <%! static Logger logger = Logger.getLogger("edit.jsp"); %>
     <%
@@ -30,19 +30,19 @@
             }
         %>
     <form class="centre" action="successEdit.jsp" method="post">
-        <h3>Редактировать</h3><br>
+        <h3><%=res.getString("edit.title")%></h3><br>
             <input type="hidden" name="hiddenID" value=<%=winapi.getId()%>>
-            <b>Функция: </b><br>
-        <textarea name="functionArea" rows="5" cols="100" maxlength="90"><%=winapi.getNameAndParameters() %></textarea><br>
-            Синтаксис: <br>
-        <textarea name="syntacsisArea" rows="5" cols="100" maxlength="90"><%=winapi.getProcedureOrFunction() %></textarea><br>
-            Параметры: <br>
-        <textarea name="parametrsArea" rows="5" cols="100" maxlength="90"><%=winapi.getParameterTypes() %></textarea><br>
-            Возвращаемые значения: <br>
-        <textarea name="returnTypeArea" rows="5" cols="100" maxlength="1000"><%=winapi.getReturnType() %></textarea><br>
-            Описание: <br>
-        <textarea name="actArea" rows="5" cols="100" maxlength="1000"><%=winapi.getAct() %></textarea><br>
-            <input class="button" type="submit" value="Изменить"/>
+            <p><%=res.getString("function.value")%></p>
+        <textarea name="functionArea" rows="5" cols="100" maxlength="90"><%=winapi.getNameAndParameters() %></textarea>
+            <p><%=res.getString("syntacsis.value")%></p>
+        <textarea name="syntacsisArea" rows="5" cols="100" maxlength="90"><%=winapi.getProcedureOrFunction() %></textarea>
+            <p><%=res.getString("parametrs.value")%></p>
+        <textarea name="parametrsArea" rows="5" cols="100" maxlength="90"><%=winapi.getParameterTypes() %></textarea>
+            <p><%=res.getString("returntype.value")%></p>
+        <textarea name="returnTypeArea" rows="5" cols="100" maxlength="1000"><%=winapi.getReturnType() %></textarea>
+            <p><%=res.getString("act.value")%></p>
+        <textarea name="actArea" rows="5" cols="100" maxlength="1000"><%=winapi.getAct() %></textarea>
+            <input class="button" type="submit" value="<%=res.getString("edit.btn")%>"/>
     </form>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>WinAPI</title>
+    <title><%=res.getString("title.value")%></title>
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -26,6 +26,6 @@
         }
     %>
 <a href="info.jsp"><%=res.getString("back.btn")%></a>
-<h2 class="centre">Изменение прошло успешно</h2>
+<h2 class="centre"><%=res.getString("successedit.title")%></h2>
 </body>
 </html>

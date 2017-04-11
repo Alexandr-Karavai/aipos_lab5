@@ -1,30 +1,33 @@
 <%@ page import="res.Data"%>
 <%@ page import="res.WinApi"%>
 <%@ page import="java.sql.SQLException" %>
+<%@ page import="java.util.ResourceBundle" %>
+<%@ page import="org.apache.log4j.Logger" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>WinAPI</title>
+    <title><%=res.getString("title.value")%></title>
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
-    <a href="index.jsp">Вернуться на главную страницу</a><br>
+    <%!ResourceBundle res = ResourceBundle.getBundle("lang_ru_RU");%>
+    <%! static Logger logger = Logger.getLogger("delete.jsp"); %>
+
+    <a href="index.jsp"><%=res.getString("back.main")%></a><br>
+
         <% request.setCharacterEncoding("UTF-8"); %>
-        <%if (request.getParameter("1").length()<90 &&request.getParameter("2").length()<90 &&request.getParameter("3").length()<90 &&request.getParameter("4").length()<1000
-                &&request.getParameter("5").length()<1000){ %>
-        <% WinApi winapi = new WinApi("0",request.getParameter("1"),request.getParameter("2"),request.getParameter("3"),
-                request.getParameter("4"),request.getParameter("5")); %>
+        <% WinApi winapi = new WinApi("id",request.getParameter("functionArea"),request.getParameter("syntacsisArea"),
+                request.getParameter("parametrsArea"),request.getParameter("returnTypeArea"),
+                request.getParameter("actArea")); %>
         <%
             try {
                 Data.addWinApi(winapi);
+                logger.info("Successful add new function");
             } catch (SQLException e) {
-                e.printStackTrace();
+                logger.error("Error add : ",e);
             }
         %>
-    <h2 class="centre"><%="Функция "+request.getParameter("1")+" добавлена"%></h2>
-        <%} else {  %>
-    <h2 class="centre">Невозможно добавить</h2>
-        <%} %>
+    <h2 class="centre"><%="Функция "+request.getParameter("functionArea")+" добавлена"%></h2>
 </body>
 </html>

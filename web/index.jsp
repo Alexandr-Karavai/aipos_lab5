@@ -3,7 +3,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>WinAPI</title>
+  <title><%=res.getString("title.value")%></title>
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
   <body>
