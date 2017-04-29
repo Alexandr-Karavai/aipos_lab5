@@ -7,6 +7,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author karavai
+ */
+
+
+
 public class Data {
 
     final static Logger logger = Logger.getLogger(Data.class);
@@ -16,6 +23,12 @@ public class Data {
     static {
         db = new Database();
     }
+
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
 
     public static List<WinApi> getWinApis() throws SQLException {
         List<WinApi> winapis = new ArrayList<WinApi>();
@@ -33,6 +46,13 @@ public class Data {
         return winapis;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws SQLException
+     */
+
     public static WinApi getWinApi(String id) throws SQLException {
         WinApi error = null;
         try {
@@ -48,6 +68,12 @@ public class Data {
         return error;
     }
 
+    /**
+     *
+     * @param winapi
+     * @throws SQLException
+     */
+
     public static void addWinApi(WinApi winapi) throws SQLException {
         try {
             db.update("INSERT INTO winapi (nameAndParameters,procedureOrFunction," +
@@ -61,6 +87,13 @@ public class Data {
         }
     }
 
+    /**
+     *
+     * @param winapi
+     * @param id
+     * @throws SQLException
+     */
+
     public static void editWinApi(WinApi winapi, String id) throws SQLException {
         try {
             db.update("UPDATE winapi SET nameAndParameters='" + winapi.getNameAndParameters() + "',procedureOrFunction='"
@@ -72,6 +105,12 @@ public class Data {
             logger.error("Change error : ", e);
         }
     }
+
+    /**
+     *
+     * @param id
+     * @throws SQLException
+     */
 
     public static void delete(String id) throws SQLException {
         try {

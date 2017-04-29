@@ -31,18 +31,15 @@
                         logger.error("Error in show : ",e);
                     }
                 %>
-    <div id="main">
-        <ul  id="holder">
+    <div id="mainInfo" itemscope itemtype="http://schema.org/Thing/CreativeWork/Article/TechArticle/APIReference">
             <%for (int i = 0; i<winapis.size(); i++){%>
-                 <li class="scroll">
-                    <a><%=res.getString("id.value")%> <%= winapis.get(i).getId() %></a>
+                    <a itemprop="identifier"><%=res.getString("id.value")%> <%= winapis.get(i).getId() %></a>
                     <br>
-                        <div class="infoBloc">
-                                <b><%=res.getString("function.value")%></b><%=winapis.get(i).getNameAndParameters() %><br>
-                                <b><%=res.getString("syntacsis.value")%></b><%=winapis.get(i).getProcedureOrFunction() %><br>
-                                <b><%=res.getString("parametrs.value")%></b><%=winapis.get(i).getParameterTypes() %><br>
-                                <b><%=res.getString("returntype.value")%></b><%=winapis.get(i).getReturnType() %><br>
-                                <b><%=res.getString("act.value")%></b><%=winapis.get(i).getAct() %><br>
+                                <b itemprop="name" ><%=res.getString("function.value")%></b><%=winapis.get(i).getNameAndParameters() %><br>
+                                <%--<b itemprop="syntax" ><%=res.getString("syntacsis.value")%></b><%=winapis.get(i).getProcedureOrFunction() %><br>--%>
+                                <%--<b itemprop="arguments" ><%=res.getString("parametrs.value")%></b><%=winapis.get(i).getParameterTypes() %><br>--%>
+                                <%--<b itemprop="return" ><%=res.getString("returntype.value")%></b><%=winapis.get(i).getReturnType() %><br>--%>
+                                <b itemprop="description" ><%=res.getString("act.value")%></b><%=winapis.get(i).getAct() %><br>
                                         <form action="edit.jsp" method="post">
                                             <input type="hidden" name="hiddenID" value=<%=winapis.get(i).getId()%>>
                                             <input class="button" type="submit" name="press" value="<%=res.getString("edit.btn")%>" />
@@ -52,10 +49,8 @@
                                             <input type="hidden" name="hiddenID" value=<%=winapis.get(i).getId()%>>
                                             <input class="button" type="submit" name="press1" value="<%=res.getString("delete.btn")%>" />
                                         </form><br>
-                        </div><br>
-            <%} %>
-                 </li>
-        </ul>
+                        <br>
+            <%}%>
     </div>
     <a href="index.jsp"><%=res.getString("back.main")%></a>
 </body>
