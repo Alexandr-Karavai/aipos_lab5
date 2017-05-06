@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author karavai
  */
 
@@ -25,8 +24,8 @@ public class Data {
     }
 
     /**
-     *
-     * @return
+     * Возвращает информацию о всех записях (функциях WInAPI).
+     * @return winapis - массив в котором содержатся все записи из таблицы
      * @throws SQLException
      */
 
@@ -35,8 +34,7 @@ public class Data {
         try {
             ResultSet rs = db.getResultSet("select * from winapi");
             while (rs.next()) {
-                WinApi winapi = new WinApi(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
-                        rs.getString(5), rs.getString(6));
+                WinApi winapi = new WinApi(rs.getString(1), rs.getString(2), rs.getString(3));
                 winapis.add(winapi);
             }
             logger.info("Successful getting info about WinAPI");
@@ -47,9 +45,9 @@ public class Data {
     }
 
     /**
-     *
-     * @param id
-     * @return
+     * Возвращает информацию о записи (функции WInAPI) по id элемента.
+     * @param id - уникальный номер записи (функции WinAPI)
+     * @return возвращает новый экземпляр класса WinApi
      * @throws SQLException
      */
 
@@ -58,8 +56,7 @@ public class Data {
         try {
             ResultSet rs = db.getResultSet("select * from winapi where id='" + id + "'");
             while (rs.next()) {
-                return new WinApi(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
-                        rs.getString(5), rs.getString(6));
+                return new WinApi(rs.getString(1), rs.getString(2), rs.getString(3));
             }
             logger.info("Getting information about WinAPI by id");
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
@@ -69,18 +66,15 @@ public class Data {
     }
 
     /**
-     *
+     * SQL запрос на добавление записи о новой функции в таблицу
      * @param winapi
      * @throws SQLException
      */
 
     public static void addWinApi(WinApi winapi) throws SQLException {
         try {
-            db.update("INSERT INTO winapi (nameAndParameters,procedureOrFunction," +
-                    "parameterTypes,returnType,act) VALUES('" + winapi.getNameAndParameters()
-                    + "','" + winapi.getProcedureOrFunction() + "','" + winapi.getParameterTypes() +
-                    "','" + winapi.getReturnType() + "','"
-                    + winapi.getAct() + "')");
+            db.update("INSERT INTO winapi (nameAndParameters,act) VALUES('" + winapi.getNameAndParameters()
+                    + "','" + winapi.getAct() + "')");
             logger.info("Addition new info");
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             logger.error("Error adding : ", e);
@@ -88,18 +82,16 @@ public class Data {
     }
 
     /**
-     *
+     * SQL запрос на изменение информации о введенной функции.
+     * Изменения происходят по id элемента.
      * @param winapi
-     * @param id
+     * @param id - уникальный номер записи (функции WinAPI)
      * @throws SQLException
      */
 
     public static void editWinApi(WinApi winapi, String id) throws SQLException {
         try {
-            db.update("UPDATE winapi SET nameAndParameters='" + winapi.getNameAndParameters() + "',procedureOrFunction='"
-                    + winapi.getProcedureOrFunction() + "',parameterTypes='" + winapi.getParameterTypes() +
-                    "',returnType='" + winapi.getReturnType()
-                    + "',act='" + winapi.getAct() + "' WHERE id='" + id + "'");
+            db.update("UPDATE winapi SET nameAndParameters='" + winapi.getNameAndParameters() + "',act='" + winapi.getAct() + "' WHERE id='" + id + "'");
             logger.info("Successful edition");
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             logger.error("Change error : ", e);
@@ -107,8 +99,9 @@ public class Data {
     }
 
     /**
-     *
-     * @param id
+     * SQL запрос на удаление записи из таблицы.
+     * Удаление происходит по id элемента.
+     * @param id - уникальный номер записи (функции WinAPI)
      * @throws SQLException
      */
 
