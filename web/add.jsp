@@ -17,9 +17,7 @@
     <a href="index.jsp"><%=res.getString("back.main")%></a><br>
 
         <% request.setCharacterEncoding("UTF-8"); %>
-        <% WinApi winapi = new WinApi("id",request.getParameter("functionArea"),request.getParameter("syntacsisArea"),
-                request.getParameter("parametrsArea"),request.getParameter("returnTypeArea"),
-                request.getParameter("actArea")); %>
+        <% WinApi winapi = new WinApi("id",request.getParameter("functionArea"),request.getParameter("actArea")); %>
         <%
             try {
                 Data.addWinApi(winapi);

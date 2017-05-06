@@ -17,12 +17,6 @@
                 <h3><%=res.getString("new.title")%></h3><br>
                     <p><%=res.getString("function.value")%></p>
                 <textarea  name="functionArea" rows="5" cols="100" maxlength="90"></textarea><br>
-                    <p><%=res.getString("syntacsis.value")%></p>
-                <textarea  name="syntacsisArea" rows="5" cols="100" maxlength="90"></textarea><br>
-                    <p><%=res.getString("parametrs.value")%></p>
-                <textarea  name="parametrsArea" rows="5" cols="100" maxlength="90"></textarea><br>
-                    <p><%=res.getString("returntype.value")%></p>
-                <textarea  name="returnTypeArea" rows="5" cols="100" maxlength="1000"></textarea><br>
                     <p><%=res.getString("act.value")%></p>
                 <textarea  name="actArea" rows="5" cols="100" maxlength="1000"></textarea><br>
                     <input class="button" type="submit" name="press" value="<%=res.getString("add.btn")%>"/>
