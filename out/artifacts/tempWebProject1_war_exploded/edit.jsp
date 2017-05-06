@@ -34,12 +34,6 @@
             <input type="hidden" name="hiddenID" value=<%=winapi.getId()%>>
             <p><%=res.getString("function.value")%></p>
         <textarea name="functionArea" rows="5" cols="100" maxlength="90"><%=winapi.getNameAndParameters() %></textarea>
-            <p><%=res.getString("syntacsis.value")%></p>
-        <textarea name="syntacsisArea" rows="5" cols="100" maxlength="90"><%=winapi.getProcedureOrFunction() %></textarea>
-            <p><%=res.getString("parametrs.value")%></p>
-        <textarea name="parametrsArea" rows="5" cols="100" maxlength="90"><%=winapi.getParameterTypes() %></textarea>
-            <p><%=res.getString("returntype.value")%></p>
-        <textarea name="returnTypeArea" rows="5" cols="100" maxlength="1000"><%=winapi.getReturnType() %></textarea>
             <p><%=res.getString("act.value")%></p>
         <textarea name="actArea" rows="5" cols="100" maxlength="1000"><%=winapi.getAct() %></textarea>
             <input class="button" type="submit" value="<%=res.getString("edit.btn")%>"/>

@@ -14,9 +14,7 @@
 <%!ResourceBundle res = ResourceBundle.getBundle("lang_ru_RU");%>
 <%! static Logger logger = Logger.getLogger("successEdit.jsp"); %>
 <%request.setCharacterEncoding("UTF-8"); %>
-    <%WinApi winapi = new WinApi("id",request.getParameter("functionArea"),request.getParameter("syntacsisArea"),
-            request.getParameter("parametrsArea"),request.getParameter("returnTypeArea"),
-            request.getParameter("actArea"));%>
+    <%WinApi winapi = new WinApi("id",request.getParameter("functionArea"),request.getParameter("actArea"));%>
     <%
         try {
             Data.editWinApi(winapi, request.getParameter("hiddenID"));
