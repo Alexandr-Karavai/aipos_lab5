@@ -31,15 +31,12 @@
                         logger.error("Error in show : ",e);
                     }
                 %>
-    <div id="mainInfo" itemscope itemtype="http://schema.org/Thing/CreativeWork/Article/TechArticle/APIReference">
             <%for (int i = 0; i<winapis.size(); i++){%>
-                    <a itemprop="identifier"><%=res.getString("id.value")%> <%= winapis.get(i).getId() %></a>
+    <div id="mainInfo" itemscope itemtype="http://schema.org/Thing/CreativeWork/Article/TechArticle/APIReference">
+                    <span itemprop="identifier"><a><%=res.getString("id.value")%> <%= winapis.get(i).getId() %></a></span>
                     <br>
-                                <b itemprop="name" ><%=res.getString("function.value")%></b><%=winapis.get(i).getNameAndParameters() %><br>
-                                <%--<b itemprop="syntax" ><%=res.getString("syntacsis.value")%></b><%=winapis.get(i).getProcedureOrFunction() %><br>--%>
-                                <%--<b itemprop="arguments" ><%=res.getString("parametrs.value")%></b><%=winapis.get(i).getParameterTypes() %><br>--%>
-                                <%--<b itemprop="return" ><%=res.getString("returntype.value")%></b><%=winapis.get(i).getReturnType() %><br>--%>
-                                <b itemprop="description" ><%=res.getString("act.value")%></b><%=winapis.get(i).getAct() %><br>
+                         <span itemprop="name"><b ><%=res.getString("function.value")%></b><%=winapis.get(i).getNameAndParameters() %><br></span>
+                         <span itemprop="description" ><b><%=res.getString("act.value")%></b><%=winapis.get(i).getAct() %><br></span>
                                         <form action="edit.jsp" method="post">
                                             <input type="hidden" name="hiddenID" value=<%=winapis.get(i).getId()%>>
                                             <input class="button" type="submit" name="press" value="<%=res.getString("edit.btn")%>" />
@@ -50,8 +47,9 @@
                                             <input class="button" type="submit" name="press1" value="<%=res.getString("delete.btn")%>" />
                                         </form><br>
                         <br>
-            <%}%>
     </div>
+            <%}%>
+
     <a href="index.jsp"><%=res.getString("back.main")%></a>
 </body>
 </html>
